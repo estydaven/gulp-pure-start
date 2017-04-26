@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+
+    nav{
+        display: flex;
+        align-items: baseline;
+        list-style: none;
+    }
+}
+
+.main-and-sidebar-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.main{
+    flex: 3;
+    margin-right: 60px;
+}
+
+.sidebar{
+    flex: 1;
+}
+
+@media (max-width: 600px) {
+  .main-and-sidebar-wrapper {
+    flex-direction: column;
+  }
+  
+  .main {
+    margin-right: 0;
+    margin-bottom: 60px;
+  }
+}

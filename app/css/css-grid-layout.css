@@ -1,0 +1,46 @@
+@charset "UTF-8";
+header {
+  grid-area: header; }
+
+.main {
+  grid-area: main; }
+
+.sidebar {
+  grid-area: sidebar; }
+
+footer {
+  grid-area: footer; }
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 1fr;
+      grid-template-columns: 3fr 1fr;
+  grid-template-areas: "header header" "main sidebar" "footer footer";
+  grid-gap: 60px; }
+
+header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; }
+  header nav {
+    justify-self: start;
+    list-style: none;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto 1fr 1fr;
+        grid-template-columns: auto 1fr 1fr;
+    -webkit-box-align: end;
+    -webkit-align-items: end;
+        -ms-flex-align: end;
+            align-items: end; }
+  header button {
+    justify-self: end; }
+
+@media (max-width: 600px) {
+  .container {
+    /* Переделываем сетку в одноколоночный макет */
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-template-areas: "header" "main" "sidebar" "footer"; } }

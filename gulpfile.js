@@ -1,8 +1,3 @@
-/* 
- * Gulp Pure Start (GPS) Copyright © 2017, Nikita Mihalyov nikita.mihlyov@gmail.com
- * ISC Licensed
- */
-
 var gulp         = require('gulp'),                 // Сам сборщик Gulp
     sass         = require('gulp-sass'),            // Пакет компиляции SASS/SCSS
     pug          = require('gulp-pug'),             // Пакет компиляции Pug (бывш. Jade)
@@ -18,7 +13,7 @@ var gulp         = require('gulp'),                 // Сам сборщик Gul
 
 // Компилируем SASS в CSS (можно изменить на SCSS) и добавляем вендорные префиксы
 gulp.task('sass',  function () {
-    return gulp.src('app/sass/style.sass')  // В этом файле хранятся основные стили, остальные следует импортировать в него
+    return gulp.src('app/sass/*.*')  // В этом файле хранятся основные стили, остальные следует импортировать в него
     .pipe(sass())
     .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8'], {cascade: false}))
     .pipe(gulp.dest('app/css'));
@@ -77,7 +72,7 @@ gulp.task('browser-sync', function () {
 
 // Следим за изменениями файлов, компилируем их и обновляем страницу/инжектим стили
 gulp.task('default', ['browser-sync', 'css', 'pug', 'scripts'], function () {
-    gulp.watch('app/sass/**/*.sass', ['css']);
+    gulp.watch('app/sass/**/*.scss', ['css']);
     gulp.watch('app/pug/**/*.pug', ['pug']);
     gulp.watch('app/js/*.js', browserSync.reload);
 });
